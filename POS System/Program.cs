@@ -1,17 +1,21 @@
-namespace POS_System
+using POS_System;
+using System;
+using System.Windows.Forms;
+
+static class Program
 {
-    internal static class Program
+    [STAThread]
+    static void Main()
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main()
+        // create the database, if it doesn't already exist.
+        using (var context = new AppDbContext())
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new LoginScreen());
+            context.Database.EnsureCreated();
         }
+
+        Application.SetHighDpiMode(HighDpiMode.SystemAware);
+        Application.EnableVisualStyles();
+        Application.SetCompatibleTextRenderingDefault(false);
+        Application.Run(new LoginScreen());
     }
 }
