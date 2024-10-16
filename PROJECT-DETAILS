@@ -1,0 +1,62 @@
+======= PROJECT DETAILS =======
+Screens:
+  Login Screen:
+  - Simple menu set up with username and password entry to access the rest of the system
+  Ordering Screens:
+  - Split among a few different screens with common features of live order list and buttons leading to other administrator menus above. Also contains a nav bar below the adminstrator buttons for access to other 
+    screens
+    Menu Screen:
+    - The basic items sold at [insert company name], when clicked on items are added to the order list.]
+    Meal Screen:
+    - A separate screen accessed from the nav bar that has pre-made meals that will be added to the order list when clicked on. These meals once added to the order list can be edited, but no editing options
+      exist on the meal screen. The meal screen is entirely just to show popular meals that can save time on the ordering process, and to pad out our screen amount ;)
+    [ more can be added idk yet tho ]
+  Sales Screen:
+  - Provides information on all aspects of store sales, daily, weekly, monthly, graphs showing performance throughout a day of the store being open, etc. This menu changes based on the level of authority the user
+    has.
+  Product Screen:
+  - Provides information on all items and their amounts currently available to be sold at the store. Contains multiple options to view details about each item as well as view metrics for amount of certain products
+    being used over given periods. Updates accordingly when an order is processed by a user.
+  Settings Screen: 
+  - Provides options to adjust various aspects of the interface across different screens to tune preferences for each store. Accessible to every user authority level with differing levels of options available.
+
+[ add more screens to here when we think of them ] 
+
+Roles and their changes:
+| Crew Member:
+  Login Screen:
+  - Login as normal with username and password
+  Ordering Screens:
+  - Have access to all requirements to making an order, live feedback bar on the side, all menu items, meal page, etc
+  Sales Screen:
+  - Has access to basic sales for the day with no graphs for statistics
+  Product Screen:
+  - No access to product screen
+  Settings Screen:
+  - No access to settings screen
+
+| Team Leader
+  Login Screen:
+  - Same as crew member
+  Ordering Screens:
+  - Have access to all features crew member has access to
+  Sales Screen:
+  - Has access to sales for the day and past week with additional abilities for resetting the sales for the day in preparation for closing
+  Product Screen:
+  - No access to product screen
+  Settings Screen:
+  - No access to settings screen
+  
+
+| Manager
+  Login Screen:
+    - Same as other roles
+    Ordering Screen
+    - Have access to all features of the menu
+    Sales Screen:
+    - Has access to all features of the menu
+    Product Screen:
+    - Has access to all features of the menu
+    Settings Screen:
+    - Has access to all features of the menu
+  
