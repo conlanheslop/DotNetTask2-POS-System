@@ -12,10 +12,11 @@ namespace POS_System
     public class POSUser
     {
         [Key]
-        public int Id { get; set; }
+        public int UserID { get; set; }
 
-        public string Username { get; set; }
         public string Password { get; set; }
-        public string Type { get; set; }
+        public string Name { get; set; }
+
+        public int UserType { get; set; }  // 0 = crew, 1 = team lead, 2 = manager 
     }
 }

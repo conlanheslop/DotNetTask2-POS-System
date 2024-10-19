@@ -21,9 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="db\data.db">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <Folder Include="db\" />
   </ItemGroup>
 
 </Project>

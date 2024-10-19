@@ -13,10 +13,14 @@ namespace POS_System
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // set the primary key
+            modelBuilder.Entity<POSUser>().HasKey(u => u.UserID);
+
             // add dummy data, added when "dotnet ef database update" is run
             modelBuilder.Entity<POSUser>().HasData(
-                new POSUser { Id = 1, Username = "admin", Password = "admin123", Type = "Admin" },
-                new POSUser { Id = 2, Username = "user1", Password = "password", Type = "Customer" }
+                new POSUser { UserID = 1, Password = "password", Name = "Jane Doe", UserType = 0 },  // crew
+                new POSUser { UserID = 2, Password = "password", Name = "John Doe", UserType = 1 },   // team lead
+                new POSUser { UserID = 3, Password = "password", Name = "Ronald McDonald", UserType = 2 } // manager
             );
         }
 
