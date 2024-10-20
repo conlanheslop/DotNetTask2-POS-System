@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using POS_System.Classes;
 
 namespace POS_System
 {
@@ -8,7 +9,7 @@ namespace POS_System
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source=./db/data.db");
+            optionsBuilder.UseSqlite("Data Source=./Db/data.db");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
