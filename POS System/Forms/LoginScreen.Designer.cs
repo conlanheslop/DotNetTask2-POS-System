@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginScreen));
             label1 = new Label();
             label2 = new Label();
             PasswordTextBox = new MaskedTextBox();
@@ -41,7 +42,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(169, 11);
+            label1.Location = new Point(247, 9);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
             label1.Size = new Size(209, 30);
@@ -52,36 +53,38 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(252, 50);
+            label2.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label2.ImageAlign = ContentAlignment.MiddleRight;
+            label2.Location = new Point(311, 39);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(73, 32);
+            label2.Size = new Size(74, 32);
             label2.TabIndex = 1;
             label2.Text = "Login";
             // 
             // PasswordTextBox
             // 
-            PasswordTextBox.Location = new Point(214, 173);
+            PasswordTextBox.Location = new Point(252, 259);
             PasswordTextBox.Margin = new Padding(2);
             PasswordTextBox.Name = "PasswordTextBox";
-            PasswordTextBox.Size = new Size(145, 23);
+            PasswordTextBox.PasswordChar = '*';
+            PasswordTextBox.Size = new Size(176, 23);
             PasswordTextBox.TabIndex = 2;
             // 
             // UsernameTextBox
             // 
-            UsernameTextBox.Location = new Point(214, 121);
+            UsernameTextBox.Location = new Point(252, 156);
             UsernameTextBox.Margin = new Padding(2);
             UsernameTextBox.Name = "UsernameTextBox";
-            UsernameTextBox.Size = new Size(145, 23);
+            UsernameTextBox.Size = new Size(176, 23);
             UsernameTextBox.TabIndex = 3;
             // 
             // LoginButton
             // 
-            LoginButton.Location = new Point(244, 209);
+            LoginButton.Location = new Point(252, 331);
             LoginButton.Margin = new Padding(2);
             LoginButton.Name = "LoginButton";
-            LoginButton.Size = new Size(83, 37);
+            LoginButton.Size = new Size(176, 38);
             LoginButton.TabIndex = 4;
             LoginButton.Text = "Login";
             LoginButton.UseVisualStyleBackColor = true;
@@ -90,10 +93,11 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(214, 104);
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(247, 120);
             label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(60, 15);
+            label3.Size = new Size(87, 21);
             label3.TabIndex = 5;
             label3.Text = "Username";
             label3.Click += label3_Click;
@@ -101,18 +105,21 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(214, 156);
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(252, 226);
             label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(57, 15);
+            label4.Size = new Size(82, 21);
             label4.TabIndex = 6;
             label4.Text = "Password";
+            //label4.Click += this.label4_Click;
             // 
             // LoginScreen
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(560, 270);
+            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleMode = AutoScaleMode.Dpi;
+            AutoSize = true;
+            ClientSize = new Size(676, 481);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(LoginButton);
@@ -120,9 +127,12 @@
             Controls.Add(PasswordTextBox);
             Controls.Add(label2);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(2);
+            MaximizeBox = false;
             Name = "LoginScreen";
-            Text = "Form1";
+            Text = "Login Menu";
             Load += LoginScreen_Load;
             ResumeLayout(false);
             PerformLayout();

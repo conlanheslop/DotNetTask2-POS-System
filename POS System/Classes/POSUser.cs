@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace POS_System
+namespace POS_System.Classes
 {
     [Table("Users")]
     public class POSUser

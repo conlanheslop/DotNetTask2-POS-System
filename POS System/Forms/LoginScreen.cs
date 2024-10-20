@@ -1,3 +1,4 @@
+using POS_System.Forms;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -65,7 +66,12 @@ namespace POS_System
                             break;
                     }
 
-                    MessageBox.Show($"Login succesful. Name: {user.Name} | User Type: {userType}");
+
+                    var itemMenu = new ItemMenu(user.Name, userType);
+                    itemMenu.Show();
+
+                    this.Hide();
+
                 }
                 else
                 {
