@@ -11,6 +11,8 @@ Screens:
     - A separate screen accessed from the nav bar that has pre-made meals that will be added to the order list when clicked on. These meals once added to the order list can be edited, but no editing options
       exist on the meal screen. The meal screen is entirely just to show popular meals that can save time on the ordering process, and to pad out our screen amount ;)
     [ more can be added idk yet tho ]
+  Payment Screen: 
+  - Provides methods for customers to pay for the items they want, eftpos, cash, split paying, refunds, etc
   Sales Screen:
   - Provides information on all aspects of store sales, daily, weekly, monthly, graphs showing performance throughout a day of the store being open, etc. This menu changes based on the level of authority the user
     has.
@@ -28,6 +30,8 @@ Roles and their changes:
   - Login as normal with username and password
   Ordering Screens:
   - Have access to all requirements to making an order, live feedback bar on the side, all menu items, meal page, etc
+  Payment Screen:
+  - Has access to basic functionalities of paying, all the different methods of payment, split paying. Does not have access to refunds
   Sales Screen:
   - Has access to basic sales for the day with no graphs for statistics
   Product Screen:
@@ -40,6 +44,8 @@ Roles and their changes:
   - Same as crew member
   Ordering Screens:
   - Have access to all features crew member has access to
+  Payment Screem:
+  - Has access to basic functionalities of paying, all the different methods of payment, split paying. Does not have access to refunds
   Sales Screen:
   - Has access to sales for the day and past week with additional abilities for resetting the sales for the day in preparation for closing
   Product Screen:
@@ -50,13 +56,15 @@ Roles and their changes:
 
 | Manager
   Login Screen:
-    - Same as other roles
-    Ordering Screen
-    - Have access to all features of the menu
-    Sales Screen:
-    - Has access to all features of the menu
-    Product Screen:
-    - Has access to all features of the menu
-    Settings Screen:
-    - Has access to all features of the menu
-  
+  - Same as other roles
+  Ordering Screen
+  - Have access to all features of the menu
+  Payment Screen:
+  - Have access to all features of the menu
+  Sales Screen:
+  - Has access to all features of the menu
+  Product Screen:
+  - Has access to all features of the menu
+  Settings Screen:
+  - Has access to all features of the menu
+
