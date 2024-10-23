@@ -41,7 +41,7 @@ namespace POS_System
 
             string password = PasswordTextBox.Text;
 
-            using (var DbContext = new AppDbContext()) 
+            using (var DbContext = new AppDbContext())
             {
                 var user = DbContext.Users.FirstOrDefault(u => u.UserID == userID && u.Password == password);
 
@@ -80,5 +80,9 @@ namespace POS_System
             }
         }
 
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
