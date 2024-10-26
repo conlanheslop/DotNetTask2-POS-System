@@ -33,6 +33,7 @@
 
   <ItemGroup>
     <Folder Include="Db\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -56,9 +57,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Db\data.db">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

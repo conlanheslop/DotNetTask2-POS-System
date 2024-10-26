@@ -14,16 +14,28 @@ namespace POS_System
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // set the primary key
+            modelBuilder.Entity<POSUser>()
+                .HasDiscriminator<int>("UserType")  // 'UserType' will differentiate our subclasses
+                .HasValue<Crew>(0)                 // crew = 0
+                .HasValue<TeamLead>(1)             // teamlead = 1
+                .HasValue<Manager>(2);             // manager = 2
+
+            // set the PK
             modelBuilder.Entity<POSUser>().HasKey(u => u.UserID);
 
-            // add dummy data, added when "dotnet ef database update" is run
-            modelBuilder.Entity<POSUser>().HasData(
-                new POSUser { UserID = 1, Password = "password", Name = "Jane Doe", UserType = 0 },  // crew
-                new POSUser { UserID = 2, Password = "password", Name = "John Doe", UserType = 1 },   // team lead
-                new POSUser { UserID = 3, Password = "password", Name = "Ronald McDonald", UserType = 2 } // manager
+
+            // initial dummy data
+            modelBuilder.Entity<Crew>().HasData(
+                new Crew(1, "password", "Ronald McDonald")
+            );
+
+            modelBuilder.Entity<TeamLead>().HasData(
+                new TeamLead(2, "password", "The Hamburgler")
+            );
+
+            modelBuilder.Entity<Manager>().HasData(
+                new Manager(3, "password", "Grimace")
             );
         }
-
     }
 }

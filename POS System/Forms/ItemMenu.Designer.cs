@@ -46,7 +46,6 @@
             LabelName.Size = new Size(93, 15);
             LabelName.TabIndex = 0;
             LabelName.Text = "Logged in User:";
-            LabelName.Click += label1_Click;
             // 
             // LabelRole
             // 
@@ -67,7 +66,6 @@
             LabelDateAndTime.Size = new Size(88, 15);
             LabelDateAndTime.TabIndex = 2;
             LabelDateAndTime.Text = "Date and Time";
-            LabelDateAndTime.Click += LabelDateAndTime_Click;
             // 
             // timer1
             // 
