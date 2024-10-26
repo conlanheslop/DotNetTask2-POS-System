@@ -29,12 +29,17 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ItemMenu));
             LabelName = new Label();
             LabelRole = new Label();
             LabelDateAndTime = new Label();
+            LabelTotal = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
+            BigMacButton = new Button();
+            ButtonCompleteOrder = new Button();
             ButtonLogout = new Button();
+            OrderListView = new ListView();
+            Item = new ColumnHeader();
+            Price = new ColumnHeader();
             SuspendLayout();
             // 
             // LabelName
@@ -43,62 +48,106 @@
             LabelName.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             LabelName.Location = new Point(12, 9);
             LabelName.Name = "LabelName";
-            LabelName.Size = new Size(93, 15);
+            LabelName.Size = new Size(40, 15);
             LabelName.TabIndex = 0;
-            LabelName.Text = "Logged in User:";
-            LabelName.Click += label1_Click;
+            LabelName.Text = "Name";
             // 
             // LabelRole
             // 
             LabelRole.AutoSize = true;
             LabelRole.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelRole.Location = new Point(12, 36);
+            LabelRole.Location = new Point(194, 9);
             LabelRole.Name = "LabelRole";
-            LabelRole.Size = new Size(35, 15);
+            LabelRole.Size = new Size(32, 15);
             LabelRole.TabIndex = 1;
-            LabelRole.Text = "Role:";
+            LabelRole.Text = "Role";
             // 
             // LabelDateAndTime
             // 
             LabelDateAndTime.AutoSize = true;
             LabelDateAndTime.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelDateAndTime.Location = new Point(12, 61);
+            LabelDateAndTime.Location = new Point(334, 9);
             LabelDateAndTime.Name = "LabelDateAndTime";
             LabelDateAndTime.Size = new Size(88, 15);
             LabelDateAndTime.TabIndex = 2;
             LabelDateAndTime.Text = "Date and Time";
-            LabelDateAndTime.Click += LabelDateAndTime_Click;
             // 
-            // timer1
+            // LabelTotal
             // 
-            timer1.Interval = 1000;
-            timer1.Tick += timer1_Tick;
+            LabelTotal.AutoSize = true;
+            LabelTotal.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelTotal.Location = new Point(805, 465);
+            LabelTotal.Name = "LabelTotal";
+            LabelTotal.Size = new Size(67, 32);
+            LabelTotal.TabIndex = 3;
+            LabelTotal.Text = "Total";
+            // 
+            // BigMacButton
+            // 
+            BigMacButton.Location = new Point(327, 135);
+            BigMacButton.Name = "BigMacButton";
+            BigMacButton.Size = new Size(95, 52);
+            BigMacButton.TabIndex = 4;
+            BigMacButton.Text = "Big Mac";
+            BigMacButton.UseVisualStyleBackColor = true;
+            BigMacButton.Click += BigMacButton_Click;
+            // 
+            // ButtonCompleteOrder
+            // 
+            ButtonCompleteOrder.Location = new Point(875, 523);
+            ButtonCompleteOrder.Name = "ButtonCompleteOrder";
+            ButtonCompleteOrder.Size = new Size(134, 71);
+            ButtonCompleteOrder.TabIndex = 5;
+            ButtonCompleteOrder.Text = "Complete Order";
+            ButtonCompleteOrder.UseVisualStyleBackColor = true;
+            ButtonCompleteOrder.Click += ButtonCompleteOrder_Click;
             // 
             // ButtonLogout
             // 
-            ButtonLogout.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonLogout.Location = new Point(844, 24);
+            ButtonLogout.Location = new Point(936, 12);
             ButtonLogout.Name = "ButtonLogout";
-            ButtonLogout.Size = new Size(77, 39);
-            ButtonLogout.TabIndex = 3;
+            ButtonLogout.Size = new Size(99, 70);
+            ButtonLogout.TabIndex = 6;
             ButtonLogout.Text = "Logout";
             ButtonLogout.UseVisualStyleBackColor = true;
-            ButtonLogout.Click += button1_Click;
+            ButtonLogout.Click += LogoutButton_Click;
+            // 
+            // OrderListView
+            // 
+            OrderListView.Columns.AddRange(new ColumnHeader[] { Item, Price });
+            OrderListView.Location = new Point(27, 90);
+            OrderListView.Name = "OrderListView";
+            OrderListView.Size = new Size(187, 445);
+            OrderListView.TabIndex = 7;
+            OrderListView.UseCompatibleStateImageBehavior = false;
+            OrderListView.View = View.Details;
+            OrderListView.SelectedIndexChanged += OrderListView_SelectedIndexChanged_1;
+            // 
+            // Item
+            // 
+            Item.Text = "Item";
+            Item.Width = 100;
+            // 
+            // Price
+            // 
+            Price.Text = "Price";
+            Price.Width = 80;
             // 
             // ItemMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(942, 738);
+            ClientSize = new Size(1047, 681);
+            Controls.Add(OrderListView);
             Controls.Add(ButtonLogout);
+            Controls.Add(ButtonCompleteOrder);
+            Controls.Add(BigMacButton);
+            Controls.Add(LabelTotal);
             Controls.Add(LabelDateAndTime);
             Controls.Add(LabelRole);
             Controls.Add(LabelName);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            Icon = (Icon)resources.GetObject("$this.Icon");
-            MaximizeBox = false;
             Name = "ItemMenu";
-            Text = "Item Selection";
+            Text = "ItemMenu";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -108,7 +157,13 @@
         private Label LabelName;
         private Label LabelRole;
         private Label LabelDateAndTime;
+        private Label LabelTotal;
         private System.Windows.Forms.Timer timer1;
+        private Button BigMacButton;
+        private Button ButtonCompleteOrder;
         private Button ButtonLogout;
+        private ListView OrderListView;
+        private ColumnHeader Item;
+        private ColumnHeader Price;
     }
 }

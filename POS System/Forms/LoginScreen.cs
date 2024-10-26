@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-
+using POS_System.Classes;
 namespace POS_System
 {
     public partial class LoginScreen : Form
@@ -41,37 +41,34 @@ namespace POS_System
 
             string password = PasswordTextBox.Text;
 
-            using (var DbContext = new AppDbContext()) 
+            using (var DbContext = new AppDbContext())
             {
-                var user = DbContext.Users.FirstOrDefault(u => u.UserID == userID && u.Password == password);
+                // fetch the user record from the db
+                var userRecord = DbContext.Users.FirstOrDefault(u => u.UserID == userID && u.Password == password);
 
-                if (user != null)
+                if (userRecord != null)
                 {
-
-                    string userType;
-
-                    switch (user.UserType)
+                    // create the subclasses
+                    POSUser user;
+                    switch (userRecord.UserType)
                     {
                         case 0:
-                            userType = "Crew";
+                            user = new Crew(userRecord.UserID, userRecord.Password, userRecord.Name);
                             break;
                         case 1:
-                            userType = "Team Lead";
+                            user = new TeamLead(userRecord.UserID, userRecord.Password, userRecord.Name);
                             break;
                         case 2:
-                            userType = "Manager";
+                            user = new Manager(userRecord.UserID, userRecord.Password, userRecord.Name);
                             break;
                         default:
-                            userType = "Not Valid";
-                            break;
+                            MessageBox.Show("Invalid user role.");
+                            return;
                     }
 
-
-                    var itemMenu = new ItemMenu(user.Name, userType);
+                    var itemMenu = new ItemMenu(user);
                     itemMenu.Show();
-
                     this.Hide();
-
                 }
                 else
                 {
@@ -80,5 +77,9 @@ namespace POS_System
             }
         }
 
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

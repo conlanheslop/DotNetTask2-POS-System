@@ -16,7 +16,7 @@ namespace POS_System.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.0");
 
-            modelBuilder.Entity("POS_System.POSUser", b =>
+            modelBuilder.Entity("POS_System.Classes.POSUser", b =>
                 {
                     b.Property<int>("UserID")
                         .ValueGeneratedOnAdd()
@@ -37,27 +37,60 @@ namespace POS_System.Migrations
 
                     b.ToTable("Users");
 
+                    b.HasDiscriminator<int>("UserType");
+                });
+
+            modelBuilder.Entity("POS_System.Classes.Crew", b =>
+                {
+                    b.HasBaseType("POS_System.Classes.POSUser");
+
+                    b.ToTable("Users");
+
+                    b.HasDiscriminator().HasValue(0);
+
                     b.HasData(
                         new
                         {
                             UserID = 1,
-                            Name = "Jane Doe",
+                            Name = "Ronald McDonald",
                             Password = "password",
                             UserType = 0
-                        },
-                        new
-                        {
-                            UserID = 2,
-                            Name = "John Doe",
-                            Password = "password",
-                            UserType = 1
-                        },
+                        });
+                });
+
+            modelBuilder.Entity("POS_System.Classes.Manager", b =>
+                {
+                    b.HasBaseType("POS_System.Classes.POSUser");
+
+                    b.ToTable("Users");
+
+                    b.HasDiscriminator().HasValue(2);
+
+                    b.HasData(
                         new
                         {
                             UserID = 3,
-                            Name = "Ronald McDonald",
+                            Name = "Grimace",
                             Password = "password",
-                            UserType = 2
+                            UserType = 0
+                        });
+                });
+
+            modelBuilder.Entity("POS_System.Classes.TeamLead", b =>
+                {
+                    b.HasBaseType("POS_System.Classes.POSUser");
+
+                    b.ToTable("Users");
+
+                    b.HasDiscriminator().HasValue(1);
+
+                    b.HasData(
+                        new
+                        {
+                            UserID = 2,
+                            Name = "The Hamburgler",
+                            Password = "password",
+                            UserType = 0
                         });
                 });
 #pragma warning restore 612, 618

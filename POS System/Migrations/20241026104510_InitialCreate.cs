@@ -26,17 +26,17 @@ namespace POS_System.Migrations
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "UserID", "Name", "Password", "UserType" },
-                values: new object[] { 1, "Jane Doe", "password", 0 });
+                values: new object[] { 1, "Ronald McDonald", "password", 0 });
 
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "UserID", "Name", "Password", "UserType" },
-                values: new object[] { 2, "John Doe", "password", 1 });
+                values: new object[] { 3, "Grimace", "password", 2 });
 
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "UserID", "Name", "Password", "UserType" },
-                values: new object[] { 3, "Ronald McDonald", "password", 2 });
+                values: new object[] { 2, "The Hamburgler", "password", 1 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

@@ -7,41 +7,91 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using POS_System.Classes;
+
 
 namespace POS_System.Forms
 {
     public partial class ItemMenu : Form
     {
-        public ItemMenu(string userName, string role)
+        private readonly POSUser LoggedInUser;
+        private readonly Order order = new Order();
+
+
+        public ItemMenu(POSUser user)
         {
             InitializeComponent();
+            LoggedInUser = user;
 
-            LabelName.Text = $"Name: {userName}";
-            LabelRole.Text = $"Role: {role}";
+            LabelName.Text = $"Name: {LoggedInUser.Name}";
+            LabelRole.Text = $"Role: {LoggedInUser.Role}";
+
             timer1.Start();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            LabelDateAndTime.Text = $"Date and Time: {DateTime.Now.ToString("f")}";
+            LabelDateAndTime.Text = $"Date and Time: {DateTime.Now:f}";
         }
 
-        private void LabelDateAndTime_Click(object sender, EventArgs e)
+        private void BigMacButton_Click(object sender, EventArgs e)
         {
-
+            var bigMac = new POSItem("Big Mac", 5.99m);
+            order.AddItem(bigMac);
+            RefreshOrderList();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void ButtonCompleteOrder_Click(object sender, EventArgs e)
+        {
+            if (!order.GetItems().Any())
+            {
+                MessageBox.Show("No items in the order.");
+                return;
+            }
+
+            decimal total = order.GetTotal();
+            MessageBox.Show($"Order completed!\nTotal: {total:C}");
+
+            order.Clear();  
+            RefreshOrderList(); 
+        }
+
+
+        private void RefreshOrderList()
+        {
+            OrderListView.Items.Clear();
+
+            foreach (var item in order.GetItems())
+            {
+                var listViewItem = new ListViewItem(item.Name);
+
+                listViewItem.SubItems.Add(item.Price.ToString("C"));
+
+                OrderListView.Items.Add(listViewItem);
+            }
+
+            LabelTotal.Text = $"Total: {order.GetTotal():C}"; 
+        }
+
+
+
+        private void LogoutButton_Click(object sender, EventArgs e)
         {
             var loginScreen = new LoginScreen();
             loginScreen.Show();
-
             this.Hide();
+        }
+
+        private void OrderListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OrderListView_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

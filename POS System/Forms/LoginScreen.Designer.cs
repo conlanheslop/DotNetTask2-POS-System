@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginScreen));
             label1 = new Label();
             label2 = new Label();
@@ -36,6 +37,7 @@
             LoginButton = new Button();
             label3 = new Label();
             label4 = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // label1
@@ -73,6 +75,7 @@
             // 
             // UsernameTextBox
             // 
+            UsernameTextBox.Cursor = Cursors.IBeam;
             UsernameTextBox.Location = new Point(252, 156);
             UsernameTextBox.Margin = new Padding(2);
             UsernameTextBox.Name = "UsernameTextBox";
@@ -112,7 +115,6 @@
             label4.Size = new Size(82, 21);
             label4.TabIndex = 6;
             label4.Text = "Password";
-            //label4.Click += this.label4_Click;
             // 
             // LoginScreen
             // 
@@ -147,5 +149,6 @@
         private Button LoginButton;
         private Label label3;
         private Label label4;
+        private System.Windows.Forms.Timer timer1;
     }
 }
