@@ -1,13 +1,22 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using POS_System.Classes;
+
 
 namespace POS_System.Forms
 {
     public partial class ItemMenu : Form
     {
-        private POSUser LoggedInUser;
+        private readonly POSUser LoggedInUser;
+        private readonly Order order = new Order();
+
 
         public ItemMenu(POSUser user)
         {
@@ -20,17 +29,69 @@ namespace POS_System.Forms
             timer1.Start();
         }
 
+
         private void timer1_Tick(object sender, EventArgs e)
         {
-            // show the date and time, update every second
             LabelDateAndTime.Text = $"Date and Time: {DateTime.Now:f}";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void BigMacButton_Click(object sender, EventArgs e)
+        {
+            var bigMac = new POSItem("Big Mac", 5.99m);
+            order.AddItem(bigMac);
+            RefreshOrderList();
+        }
+
+
+        private void ButtonCompleteOrder_Click(object sender, EventArgs e)
+        {
+            if (!order.GetItems().Any())
+            {
+                MessageBox.Show("No items in the order.");
+                return;
+            }
+
+            decimal total = order.GetTotal();
+            MessageBox.Show($"Order completed!\nTotal: {total:C}");
+
+            order.Clear();  
+            RefreshOrderList(); 
+        }
+
+
+        private void RefreshOrderList()
+        {
+            OrderListView.Items.Clear();
+
+            foreach (var item in order.GetItems())
+            {
+                var listViewItem = new ListViewItem(item.Name);
+
+                listViewItem.SubItems.Add(item.Price.ToString("C"));
+
+                OrderListView.Items.Add(listViewItem);
+            }
+
+            LabelTotal.Text = $"Total: {order.GetTotal():C}"; 
+        }
+
+
+
+        private void LogoutButton_Click(object sender, EventArgs e)
         {
             var loginScreen = new LoginScreen();
             loginScreen.Show();
             this.Hide();
+        }
+
+        private void OrderListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OrderListView_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
