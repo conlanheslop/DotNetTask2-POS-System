@@ -92,7 +92,8 @@ namespace POS_System.Forms
             this.Hide();
         }
 
-        private void ButtonSpecialFunctions_Click(object sender, EventArgs e)
+
+        private void ButtonSpecialFunctions_click(object sender, EventArgs e)
         {
 
             if (LoggedInUser is Manager)
@@ -115,6 +116,7 @@ namespace POS_System.Forms
             }
 
         }
+
 
         private void RefreshOrderList()
         {
@@ -161,5 +163,14 @@ namespace POS_System.Forms
 
         }
 
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

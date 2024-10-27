@@ -35,8 +35,6 @@
             UsernameTextBox = new TextBox();
             PasswordTextBox = new MaskedTextBox();
             LoginButton = new Button();
-            tableLayoutPanel1 = new TableLayoutPanel();
-            tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -44,9 +42,10 @@
             label1.Anchor = AnchorStyles.Top;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(418, 58);
+            label1.Location = new Point(296, 35);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(307, 45);
+            label1.Size = new Size(209, 30);
             label1.TabIndex = 7;
             label1.Text = "DotNET POS System";
             // 
@@ -56,100 +55,84 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             label2.ImageAlign = ContentAlignment.MiddleRight;
-            label2.Location = new Point(374, 127);
+            label2.Location = new Point(275, 79);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(395, 48);
+            label2.Size = new Size(265, 32);
             label2.TabIndex = 8;
             label2.Text = "Manager Authorisation";
             // 
             // label3
             // 
-            label3.Anchor = AnchorStyles.Top;
+            label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(372, 243);
+            label3.Location = new Point(261, 170);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(399, 49);
+            label3.Size = new Size(87, 21);
             label3.TabIndex = 12;
             label3.Text = "Username";
             // 
             // label4
             // 
-            label4.Anchor = AnchorStyles.Bottom;
+            label4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(367, 358);
+            label4.Location = new Point(261, 259);
+            label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(408, 53);
+            label4.Size = new Size(82, 21);
             label4.TabIndex = 13;
             label4.Text = "Password";
             // 
             // UsernameTextBox
             // 
-            UsernameTextBox.Anchor = AnchorStyles.Top;
+            UsernameTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             UsernameTextBox.Cursor = Cursors.IBeam;
-            UsernameTextBox.Location = new Point(373, 295);
+            UsernameTextBox.Location = new Point(261, 201);
+            UsernameTextBox.Margin = new Padding(2);
             UsernameTextBox.Name = "UsernameTextBox";
-            UsernameTextBox.Size = new Size(397, 31);
+            UsernameTextBox.Size = new Size(279, 23);
             UsernameTextBox.TabIndex = 9;
             // 
             // PasswordTextBox
             // 
-            PasswordTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            PasswordTextBox.Location = new Point(373, 414);
+            PasswordTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            PasswordTextBox.Location = new Point(261, 291);
+            PasswordTextBox.Margin = new Padding(2);
             PasswordTextBox.Name = "PasswordTextBox";
             PasswordTextBox.PasswordChar = '*';
-            PasswordTextBox.Size = new Size(397, 31);
+            PasswordTextBox.Size = new Size(279, 23);
             PasswordTextBox.TabIndex = 10;
             // 
             // LoginButton
             // 
-            LoginButton.Anchor = AnchorStyles.None;
-            LoginButton.Location = new Point(372, 610);
+            LoginButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            LoginButton.Location = new Point(261, 344);
+            LoginButton.Margin = new Padding(2);
             LoginButton.Name = "LoginButton";
-            LoginButton.Size = new Size(399, 80);
+            LoginButton.Size = new Size(279, 48);
             LoginButton.TabIndex = 11;
             LoginButton.Text = "Login";
             LoginButton.UseVisualStyleBackColor = true;
             LoginButton.Click += ButtonLogin_Click;
             // 
-            // tableLayoutPanel1
-            // 
-            tableLayoutPanel1.ColumnCount = 1;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Controls.Add(label1, 0, 1);
-            tableLayoutPanel1.Controls.Add(LoginButton, 0, 8);
-            tableLayoutPanel1.Controls.Add(PasswordTextBox, 0, 6);
-            tableLayoutPanel1.Controls.Add(label4, 0, 5);
-            tableLayoutPanel1.Controls.Add(label3, 0, 3);
-            tableLayoutPanel1.Controls.Add(UsernameTextBox, 0, 4);
-            tableLayoutPanel1.Controls.Add(label2, 0, 2);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(0, 0);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 9;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 45.63107F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 54.36893F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 116F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 49F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 62F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 57F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 76F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 64F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 198F));
-            tableLayoutPanel1.Size = new Size(1143, 750);
-            tableLayoutPanel1.TabIndex = 14;
-            // 
             // AuthorisationScreen
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1143, 750);
-            Controls.Add(tableLayoutPanel1);
-            Margin = new Padding(4, 5, 4, 5);
+            ClientSize = new Size(800, 450);
+            Controls.Add(label1);
+            Controls.Add(label2);
+            Controls.Add(label3);
+            Controls.Add(label4);
+            Controls.Add(UsernameTextBox);
+            Controls.Add(PasswordTextBox);
+            Controls.Add(LoginButton);
             Name = "AuthorisationScreen";
             Text = "AuthorisationScreen";
-            tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -161,6 +144,5 @@
         private TextBox UsernameTextBox;
         private MaskedTextBox PasswordTextBox;
         private Button LoginButton;
-        private TableLayoutPanel tableLayoutPanel1;
     }
 }

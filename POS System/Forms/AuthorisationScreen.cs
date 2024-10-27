@@ -36,7 +36,7 @@ namespace POS_System.Forms
                 if (manager != null)
                 {
                     IsAuthorised = true;
-                    this.Close();
+                    this.Close();  
                 }
                 else
                 {
