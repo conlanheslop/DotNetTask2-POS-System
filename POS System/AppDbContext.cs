@@ -7,6 +7,7 @@ namespace POS_System
     {
         public DbSet<POSUser> Users { get; set; }
         public DbSet<POSItem> POSItems { get; set; }
+        public DbSet<CompletedOrder> CompletedOrders { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -21,8 +22,7 @@ namespace POS_System
                 .HasValue<TeamLead>(1)             // teamlead = 1
                 .HasValue<Manager>(2);             // manager = 2
 
-            // set the PK
-            modelBuilder.Entity<POSUser>().HasKey(u => u.UserID);
+            modelBuilder.Entity<POSUser>().HasKey(u => u.UserID); // set the PK
 
 
             // initial menu items

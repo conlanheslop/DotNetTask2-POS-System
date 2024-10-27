@@ -119,7 +119,7 @@
             ButtonCompletePayment.TabIndex = 6;
             ButtonCompletePayment.Text = "Complete Order";
             ButtonCompletePayment.UseVisualStyleBackColor = true;
-            ButtonCompletePayment.Click += ButtonCompletePayment_Click;
+            ButtonCompletePayment.Click += ButtonCompleteOrder_Click;
             // 
             // LabelTotal
             // 

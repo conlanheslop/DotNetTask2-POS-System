@@ -93,6 +93,22 @@ namespace POS_System.Forms
         }
 
 
+        private void ButtonSpecialFunctions_click(object sender, EventArgs e)
+        {
+
+            if (LoggedInUser is Manager)
+            {
+                var specialFunctionsScreen = new SpecialFunctionsScreen(LoggedInUser);
+                specialFunctionsScreen.Show();
+                this.Hide();
+            } else
+            {
+                MessageBox.Show("Access Denied. Only managers can view the sales report.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+        }
+
+
         private void RefreshOrderList()
         {
             OrderListView.Items.Clear();

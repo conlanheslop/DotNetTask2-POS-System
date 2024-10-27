@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -90,14 +91,6 @@ namespace POS_System.Forms
         }
 
 
-        private void ButtomCompleteOrder_Click(object sender, EventArgs e)
-        {
-            var itemMenu = new ItemMenu(loggedInUser);
-            itemMenu.Show();
-            this.Close();
-        }
-
-
         private void ButtonMenu_Click(object sender, EventArgs e)
         {
             var itemMenu = new ItemMenu(loggedInUser);
@@ -105,16 +98,19 @@ namespace POS_System.Forms
             this.Close();
         }
 
+
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void ButtonCompletePayment_Click(object sender, EventArgs e)
+
+        private void ButtonCompleteOrder_Click(object sender, EventArgs e)
         {
 
             if (paymentMade)
             {
+                SaveOrder();
                 var itemMenu = new ItemMenu(loggedInUser);
                 itemMenu.Show();
                 this.Close();
@@ -125,6 +121,32 @@ namespace POS_System.Forms
                 MessageBox.Show("Payment not taken!", "Alert!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
+        }
+
+        private void SaveOrder()
+        {
+            try
+            {
+                using (var context = new AppDbContext())
+                {
+                    // join the item IDs and seperate them by a comma
+                    string joinedItemIds = string.Join(",", order.GetItems().Select(i => i.ItemID));
+
+                    var completedOrder = new CompletedOrder
+                    {
+                        ItemIDs = joinedItemIds,
+                        TotalPrice = order.GetTotal(),
+                        Date = DateTime.Now
+                    };
+
+                    context.CompletedOrders.Add(completedOrder);
+                    context.SaveChanges();
+
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show($"Error saving order to database: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
