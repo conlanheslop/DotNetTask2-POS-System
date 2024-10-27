@@ -45,11 +45,12 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(159, 29);
+            label1.Location = new Point(133, 27);
             label1.Name = "label1";
-            label1.Size = new Size(312, 32);
+            label1.Size = new Size(350, 32);
             label1.TabIndex = 1;
-            label1.Text = "EFTPOS Payment Progress";
+            label1.Text = "EFTPOS Payment Processing..";
+            label1.Click += label1_Click;
             // 
             // EftposScreen
             // 

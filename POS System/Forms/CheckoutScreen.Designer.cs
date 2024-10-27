@@ -63,18 +63,19 @@
             // 
             // TextBoxAmountTendered
             // 
-            TextBoxAmountTendered.Location = new Point(344, 110);
+            TextBoxAmountTendered.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            TextBoxAmountTendered.Location = new Point(300, 137);
             TextBoxAmountTendered.Name = "TextBoxAmountTendered";
-            TextBoxAmountTendered.Size = new Size(99, 23);
+            TextBoxAmountTendered.Size = new Size(176, 39);
             TextBoxAmountTendered.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(344, 75);
+            label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(294, 104);
             label1.Name = "label1";
-            label1.Size = new Size(121, 21);
+            label1.Size = new Size(155, 30);
             label1.TabIndex = 2;
             label1.Text = "Cash Tendered";
             label1.Click += label1_Click;
@@ -82,19 +83,19 @@
             // LabelChange
             // 
             LabelChange.AutoSize = true;
-            LabelChange.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelChange.Location = new Point(335, 182);
+            LabelChange.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelChange.Location = new Point(294, 194);
             LabelChange.Name = "LabelChange";
-            LabelChange.Size = new Size(99, 30);
+            LabelChange.Size = new Size(172, 50);
             LabelChange.TabIndex = 3;
             LabelChange.Text = "Change: ";
             // 
             // ButtonEftpos
             // 
             ButtonEftpos.FlatStyle = FlatStyle.System;
-            ButtonEftpos.Location = new Point(660, 231);
+            ButtonEftpos.Location = new Point(477, 277);
             ButtonEftpos.Name = "ButtonEftpos";
-            ButtonEftpos.Size = new Size(102, 59);
+            ButtonEftpos.Size = new Size(154, 91);
             ButtonEftpos.TabIndex = 4;
             ButtonEftpos.Text = "EFTPOS / Card";
             ButtonEftpos.UseVisualStyleBackColor = true;
@@ -102,7 +103,7 @@
             // 
             // ButtonReturn
             // 
-            ButtonReturn.Location = new Point(988, 34);
+            ButtonReturn.Location = new Point(500, 442);
             ButtonReturn.Name = "ButtonReturn";
             ButtonReturn.Size = new Size(95, 62);
             ButtonReturn.TabIndex = 5;
@@ -112,13 +113,13 @@
             // 
             // ButtonCompletePayment
             // 
-            ButtonCompletePayment.Location = new Point(660, 296);
+            ButtonCompletePayment.Location = new Point(300, 423);
             ButtonCompletePayment.Name = "ButtonCompletePayment";
-            ButtonCompletePayment.Size = new Size(102, 54);
+            ButtonCompletePayment.Size = new Size(154, 101);
             ButtonCompletePayment.TabIndex = 6;
             ButtonCompletePayment.Text = "Complete Order";
             ButtonCompletePayment.UseVisualStyleBackColor = true;
-            ButtonCompletePayment.Click += ButtonCompletePayment_Click;
+            ButtonCompletePayment.Click += ButtonCompleteOrder_Click;
             // 
             // LabelTotal
             // 
@@ -132,9 +133,9 @@
             // 
             // ButtonCashPayment
             // 
-            ButtonCashPayment.Location = new Point(660, 168);
+            ButtonCashPayment.Location = new Point(300, 277);
             ButtonCashPayment.Name = "ButtonCashPayment";
-            ButtonCashPayment.Size = new Size(102, 57);
+            ButtonCashPayment.Size = new Size(154, 91);
             ButtonCashPayment.TabIndex = 8;
             ButtonCashPayment.Text = "Tender Cash";
             ButtonCashPayment.UseVisualStyleBackColor = true;
@@ -144,7 +145,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1194, 574);
+            ClientSize = new Size(818, 574);
             Controls.Add(ButtonCashPayment);
             Controls.Add(LabelTotal);
             Controls.Add(ButtonCompletePayment);

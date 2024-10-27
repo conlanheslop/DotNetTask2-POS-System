@@ -41,6 +41,7 @@
             Item = new ColumnHeader();
             Price = new ColumnHeader();
             MenuItemsListView = new ListView();
+            ButtonSpecialFunctions = new Button();
             SuspendLayout();
             // 
             // LabelName
@@ -77,15 +78,20 @@
             // 
             LabelTotal.AutoSize = true;
             LabelTotal.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelTotal.Location = new Point(872, 485);
+            LabelTotal.Location = new Point(719, 503);
             LabelTotal.Name = "LabelTotal";
             LabelTotal.Size = new Size(67, 32);
             LabelTotal.TabIndex = 3;
             LabelTotal.Text = "Total";
             // 
+            // timer1
+            // 
+            timer1.Enabled = true;
+            timer1.Tick += timer1_Tick;
+            // 
             // ButtonCompleteOrder
             // 
-            ButtonCompleteOrder.Location = new Point(901, 520);
+            ButtonCompleteOrder.Location = new Point(882, 262);
             ButtonCompleteOrder.Name = "ButtonCompleteOrder";
             ButtonCompleteOrder.Size = new Size(134, 71);
             ButtonCompleteOrder.TabIndex = 5;
@@ -95,9 +101,9 @@
             // 
             // ButtonLogout
             // 
-            ButtonLogout.Location = new Point(936, 12);
+            ButtonLogout.Location = new Point(901, 99);
             ButtonLogout.Name = "ButtonLogout";
-            ButtonLogout.Size = new Size(99, 70);
+            ButtonLogout.Size = new Size(99, 56);
             ButtonLogout.TabIndex = 6;
             ButtonLogout.Text = "Logout";
             ButtonLogout.UseVisualStyleBackColor = true;
@@ -128,18 +134,29 @@
             // 
             MenuItemsListView.Location = new Point(311, 90);
             MenuItemsListView.Name = "MenuItemsListView";
-            MenuItemsListView.Size = new Size(555, 445);
+            MenuItemsListView.Size = new Size(555, 368);
             MenuItemsListView.TabIndex = 8;
             MenuItemsListView.UseCompatibleStateImageBehavior = false;
             MenuItemsListView.View = View.Tile;
             MenuItemsListView.ItemActivate += MenuItemsListView_ItemActivate;
             MenuItemsListView.SelectedIndexChanged += MenuItemsListView_SelectedIndexChanged;
             // 
+            // ButtonSpecialFunctions
+            // 
+            ButtonSpecialFunctions.Location = new Point(901, 178);
+            ButtonSpecialFunctions.Name = "ButtonSpecialFunctions";
+            ButtonSpecialFunctions.Size = new Size(99, 58);
+            ButtonSpecialFunctions.TabIndex = 9;
+            ButtonSpecialFunctions.Text = "Special Functions";
+            ButtonSpecialFunctions.UseVisualStyleBackColor = true;
+            ButtonSpecialFunctions.Click += ButtonSpecialFunctions_click;
+            // 
             // ItemMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1047, 681);
+            Controls.Add(ButtonSpecialFunctions);
             Controls.Add(MenuItemsListView);
             Controls.Add(OrderListView);
             Controls.Add(ButtonLogout);
@@ -169,5 +186,6 @@
         private ColumnHeader Item;
         private ColumnHeader Price;
         private ListView MenuItemsListView;
+        private Button ButtonSpecialFunctions;
     }
 }
