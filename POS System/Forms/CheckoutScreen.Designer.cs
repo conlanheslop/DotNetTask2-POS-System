@@ -1,4 +1,4 @@
-﻿namespace POS_System.Forms
+namespace POS_System.Forms
 {
     partial class CheckoutScreen
     {
@@ -112,6 +112,17 @@
             ButtonReturn.ForeColor = SystemColors.ButtonHighlight;
             ButtonReturn.Location = new Point(270, 685);
             ButtonReturn.Margin = new Padding(4, 5, 4, 5);
+            // 
+            // ButtonEftpos
+            // 
+            ButtonEftpos.FlatStyle = FlatStyle.System;
+            ButtonEftpos.Location = new Point(477, 277);
+            ButtonEftpos.Name = "ButtonEftpos";
+            ButtonEftpos.Size = new Size(154, 91);
+            ButtonEftpos.TabIndex = 4;
+            ButtonEftpos.Text = "EFTPOS / Card";
+            ButtonEftpos.UseVisualStyleBackColor = true;
+            ButtonEftpos.Click += ButtonEftpos_Click;
             ButtonReturn.Name = "ButtonReturn";
             ButtonReturn.Size = new Size(228, 103);
             ButtonReturn.TabIndex = 5;
@@ -242,6 +253,7 @@
             Controls.Add(tableLayoutPanel1);
             Margin = new Padding(4, 5, 4, 5);
             MinimumSize = new Size(1728, 1013);
+
             Name = "CheckoutScreen";
             Text = "CheckoutScreen";
             tableLayoutPanel1.ResumeLayout(false);

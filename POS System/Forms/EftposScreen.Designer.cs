@@ -73,6 +73,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.Size = new Size(884, 380);
             tableLayoutPanel1.TabIndex = 2;
+
             // 
             // EftposScreen
             // 

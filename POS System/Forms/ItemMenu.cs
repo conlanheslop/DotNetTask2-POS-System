@@ -21,6 +21,7 @@ namespace POS_System.Forms
         public ItemMenu(POSUser user)
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
             LoggedInUser = user;
 
             LabelName.Text = $"Name: {LoggedInUser.Name}";
@@ -89,6 +90,31 @@ namespace POS_System.Forms
             var checkoutScreen = new CheckoutScreen(order, LoggedInUser);
             checkoutScreen.Show();
             this.Hide();
+        }
+
+
+        private void ButtonSpecialFunctions_click(object sender, EventArgs e)
+        {
+
+            if (LoggedInUser is Manager)
+            {
+                var specialFunctionsScreen = new SpecialFunctionsScreen(LoggedInUser);
+                specialFunctionsScreen.Show();
+                this.Hide();
+
+            }
+            else if (LoggedInUser is TeamLead)
+
+            {
+                var specialFunctionsScreen = new SpecialFunctionsScreen(LoggedInUser);
+                specialFunctionsScreen.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Access Denied. Only managers & team leaders can view the sales report.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
 

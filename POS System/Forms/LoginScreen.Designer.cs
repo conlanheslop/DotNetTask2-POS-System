@@ -175,6 +175,7 @@
             MaximizeBox = false;
             MinimumSize = new Size(0, 778);
             Name = "LoginScreen";
+            SizeGripStyle = SizeGripStyle.Show;
             Text = "Login Menu";
             Load += LoginScreen_Load;
             tableLayoutPanel1.ResumeLayout(false);

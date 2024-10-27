@@ -47,6 +47,8 @@
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
+
+            ButtonSpecialFunctions = new Button();
             SuspendLayout();
             // 
             // LabelName
@@ -89,10 +91,16 @@
             LabelTotal.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point);
             LabelTotal.Location = new Point(1240, 31);
             LabelTotal.Margin = new Padding(4, 0, 4, 0);
+
             LabelTotal.Name = "LabelTotal";
             LabelTotal.Size = new Size(109, 48);
             LabelTotal.TabIndex = 3;
             LabelTotal.Text = "Total:";
+            // 
+            // timer1
+            // 
+            timer1.Enabled = true;
+            timer1.Tick += timer1_Tick;
             // 
             // ButtonCompleteOrder
             // 
@@ -213,6 +221,15 @@
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 56.6929131F));
             tableLayoutPanel3.Size = new Size(1496, 254);
             tableLayoutPanel3.TabIndex = 11;
+            // ButtonSpecialFunctions
+            // 
+            ButtonSpecialFunctions.Location = new Point(901, 178);
+            ButtonSpecialFunctions.Name = "ButtonSpecialFunctions";
+            ButtonSpecialFunctions.Size = new Size(99, 58);
+            ButtonSpecialFunctions.TabIndex = 9;
+            ButtonSpecialFunctions.Text = "Special Functions";
+            ButtonSpecialFunctions.UseVisualStyleBackColor = true;
+            ButtonSpecialFunctions.Click += ButtonSpecialFunctions_click;
             // 
             // ItemMenu
             // 
@@ -222,6 +239,16 @@
             Controls.Add(tableLayoutPanel3);
             Controls.Add(tableLayoutPanel2);
             Controls.Add(tableLayoutPanel1);
+            ClientSize = new Size(1047, 681);
+            Controls.Add(ButtonSpecialFunctions);
+            Controls.Add(MenuItemsListView);
+            Controls.Add(OrderListView);
+            Controls.Add(ButtonLogout);
+            Controls.Add(ButtonCompleteOrder);
+            Controls.Add(LabelTotal);
+            Controls.Add(LabelDateAndTime);
+            Controls.Add(LabelRole);
+            Controls.Add(LabelName);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 5, 4, 5);
             MinimumSize = new Size(1518, 1191);
@@ -252,5 +279,6 @@
         private TableLayoutPanel tableLayoutPanel1;
         private TableLayoutPanel tableLayoutPanel2;
         private TableLayoutPanel tableLayoutPanel3;
+        private Button ButtonSpecialFunctions;
     }
 }
