@@ -96,9 +96,17 @@ namespace POS_System.Forms
 
         private void ButtonMenu_Click(object sender, EventArgs e)
         {
-            var itemMenu = new ItemMenu(loggedInUser);
-            itemMenu.Show();
-            this.Close();
+            if (paymentMade)
+            {
+                MessageBox.Show("Payment has already been made! You must first refund the customer before you can cancel the order", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                var itemMenu = new ItemMenu(loggedInUser);
+                itemMenu.Show();
+                this.Close();
+            }
+
         }
         private void label1_Click(object sender, EventArgs e)
         {
