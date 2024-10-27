@@ -20,9 +20,12 @@ namespace POS_System.Forms
         public CheckoutScreen(Order currentOrder, POSUser user)
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
+
             loggedInUser = user;
             order = currentOrder;
             LoadOrderItems();
+            ButtonRefund.Visible = false;
         }
 
 
@@ -54,6 +57,7 @@ namespace POS_System.Forms
                         decimal change = amountTendered - total;
                         LabelChange.Text = $"Change: {change:C}"; ;
                         paymentMade = true;
+                        ButtonRefund.Visible = true;
                     }
                     else
                     {
@@ -80,6 +84,7 @@ namespace POS_System.Forms
                 var eftposScreen = new EftposScreen();
                 eftposScreen.ShowDialog();
                 paymentMade = true;
+                ButtonRefund.Visible = true;
             }
             else
             {
@@ -133,7 +138,42 @@ namespace POS_System.Forms
         private void SaveOrder()
         {
 
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error saving order to database: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-    
+
+
+        private void ButtonRefund_Click(object sender, EventArgs e)
+        {
+
+            // check if manager is logged in already
+            if (loggedInUser.Role != "Manager")
+            {
+                using (var authorisationScreen = new AuthorisationScreen())
+                {
+                    authorisationScreen.ShowDialog();
+
+                    if (!authorisationScreen.IsAuthorised)
+                    {
+                        MessageBox.Show("Manager login failed. Try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+            }
+
+
+            // if logged in user is already a manager, no need to login again
+            MessageBox.Show("Refund successful. If payment was via card it will be refunded within " +
+                "2 working days. Otherwise you are now authorised to return the cash " +
+                "tendered.", "Refund", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            paymentMade = false;
+            ButtonRefund.Visible = false;
+            order.Clear();
+        }
     }
 }
+

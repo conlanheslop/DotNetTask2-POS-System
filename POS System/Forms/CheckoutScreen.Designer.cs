@@ -41,6 +41,7 @@ namespace POS_System.Forms
             tableLayoutPanel2 = new TableLayoutPanel();
             tableLayoutPanel3 = new TableLayoutPanel();
             ButtonCashPayment = new Button();
+
             ButtonEftpos = new Button();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -217,6 +218,7 @@ namespace POS_System.Forms
             ButtonCashPayment.UseVisualStyleBackColor = false;
             ButtonCashPayment.Click += ButtonCashPayment_Click;
             // 
+
             // ButtonEftpos
             // 
             ButtonEftpos.Anchor = AnchorStyles.Top;
@@ -231,17 +233,32 @@ namespace POS_System.Forms
             ButtonEftpos.Text = "EFTPOS / Card";
             ButtonEftpos.UseVisualStyleBackColor = false;
             ButtonEftpos.Click += ButtonEftpos_Click;
+
             // 
             // CheckoutScreen
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+
             ClientSize = new Size(1706, 957);
             Controls.Add(tableLayoutPanel3);
             Controls.Add(tableLayoutPanel2);
             Controls.Add(tableLayoutPanel1);
             Margin = new Padding(4, 5, 4, 5);
             MinimumSize = new Size(1728, 1013);
+
+            ClientSize = new Size(818, 574);
+            Controls.Add(ButtonRefund);
+            Controls.Add(ButtonCashPayment);
+            Controls.Add(LabelTotal);
+            Controls.Add(ButtonCompletePayment);
+            Controls.Add(ButtonReturn);
+            Controls.Add(ButtonEftpos);
+            Controls.Add(LabelChange);
+            Controls.Add(label1);
+            Controls.Add(TextBoxAmountTendered);
+            Controls.Add(OrderListView);
+
             Name = "CheckoutScreen";
             Text = "CheckoutScreen";
             tableLayoutPanel1.ResumeLayout(false);
@@ -265,8 +282,11 @@ namespace POS_System.Forms
         private Button ButtonCompletePayment;
         private Label LabelTotal;
         private Button ButtonCashPayment;
+
         private TableLayoutPanel tableLayoutPanel1;
         private TableLayoutPanel tableLayoutPanel2;
         private TableLayoutPanel tableLayoutPanel3;
+        private Button ButtonRefund;
+
     }
 }
