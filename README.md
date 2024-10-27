@@ -8,9 +8,9 @@
 This is our groups submission for Assignment 2.
 
 ### Our Group:
-- Ali Bonagdaran
-- Ian Tsun
-- Conlan Heslop
+- Ali Bonagdaran (PrinceAlii)
+- Ian Tsun (RinreiRay)
+- Conlan Heslop (conlanheslop)
 
 ---
 
