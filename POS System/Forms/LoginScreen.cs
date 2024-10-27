@@ -32,6 +32,7 @@ namespace POS_System
         private void LoginButton_Click(object sender, EventArgs e)
         {
             int userID;
+            string password = PasswordTextBox.Text;
             bool isNum = int.TryParse(UsernameTextBox.Text, out userID);
 
             if (!isNum)
@@ -40,7 +41,12 @@ namespace POS_System
                 return;
             }
 
-            string password = PasswordTextBox.Text;
+            if (password == string.Empty)
+            {
+                MessageBox.Show("Please enter a password.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
 
             using (var DbContext = new AppDbContext())
             {
