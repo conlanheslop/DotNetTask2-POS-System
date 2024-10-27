@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,7 +20,6 @@ namespace POS_System.Forms
         public CheckoutScreen(Order currentOrder, POSUser user)
         {
             InitializeComponent();
-            StartPosition = FormStartPosition.CenterParent;
             loggedInUser = user;
             order = currentOrder;
             LoadOrderItems();
@@ -45,10 +43,10 @@ namespace POS_System.Forms
 
         private void ButtonCashPayment_Click(object sender, EventArgs e)
         {
-            if (!paymentMade)
+            if (decimal.TryParse(TextBoxAmountTendered.Text, out decimal amountTendered))
             {
 
-                if (decimal.TryParse(TextBoxAmountTendered.Text, out decimal amountTendered))
+                if (!paymentMade)
                 {
                     decimal total = order.GetTotal();
                     if (amountTendered >= total)
@@ -91,7 +89,7 @@ namespace POS_System.Forms
         }
 
 
-        private void ButtonMenu_Click(object sender, EventArgs e)
+        private void ButtomCompleteOrder_Click(object sender, EventArgs e)
         {
             var itemMenu = new ItemMenu(loggedInUser);
             itemMenu.Show();
@@ -99,18 +97,23 @@ namespace POS_System.Forms
         }
 
 
+        private void ButtonMenu_Click(object sender, EventArgs e)
+        {
+            var itemMenu = new ItemMenu(loggedInUser);
+            itemMenu.Show();
+            this.Close();
+        }
+
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
 
-
-        private void ButtonCompleteOrder_Click(object sender, EventArgs e)
+        private void ButtonCompletePayment_Click(object sender, EventArgs e)
         {
 
             if (paymentMade)
             {
-                SaveOrder();
                 var itemMenu = new ItemMenu(loggedInUser);
                 itemMenu.Show();
                 this.Close();
@@ -123,30 +126,14 @@ namespace POS_System.Forms
 
         }
 
+        private void LabelTotal_Click(object sender, EventArgs e)
+        {
+
+        }
         private void SaveOrder()
         {
-            try
-            {
-                using (var context = new AppDbContext())
-                {
-                    // join the item IDs and seperate them by a comma
-                    string joinedItemIds = string.Join(",", order.GetItems().Select(i => i.ItemID));
 
-                    var completedOrder = new CompletedOrder
-                    {
-                        ItemIDs = joinedItemIds,
-                        TotalPrice = order.GetTotal(),
-                        Date = DateTime.Now
-                    };
-
-                    context.CompletedOrders.Add(completedOrder);
-                    context.SaveChanges();
-
-                }
-            } catch (Exception ex)
-            {
-                MessageBox.Show($"Error saving order to database: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
+    
     }
 }

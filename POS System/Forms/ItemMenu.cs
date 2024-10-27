@@ -92,8 +92,7 @@ namespace POS_System.Forms
             this.Hide();
         }
 
-
-        private void ButtonSpecialFunctions_click(object sender, EventArgs e)
+        private void ButtonSpecialFunctions_Click(object sender, EventArgs e)
         {
 
             if (LoggedInUser is Manager)
@@ -116,7 +115,6 @@ namespace POS_System.Forms
             }
 
         }
-
 
         private void RefreshOrderList()
         {
@@ -162,5 +160,6 @@ namespace POS_System.Forms
         {
 
         }
+
     }
 }

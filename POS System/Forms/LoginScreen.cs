@@ -47,7 +47,6 @@ namespace POS_System
                 return;
             }
 
-
             using (var DbContext = new AppDbContext())
             {
                 // fetch the user record from the db
@@ -90,6 +89,21 @@ namespace POS_System
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
         {
 
         }
