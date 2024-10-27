@@ -125,5 +125,10 @@ namespace POS_System.Forms
             }
 
         }
+
+        private void LabelTotal_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
