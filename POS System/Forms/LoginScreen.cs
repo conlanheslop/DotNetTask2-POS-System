@@ -11,6 +11,7 @@ namespace POS_System
         public LoginScreen()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -31,15 +32,21 @@ namespace POS_System
         private void LoginButton_Click(object sender, EventArgs e)
         {
             int userID;
+            string password = PasswordTextBox.Text;
             bool isNum = int.TryParse(UsernameTextBox.Text, out userID);
 
             if (!isNum)
             {
-                MessageBox.Show("Please enter a valid User ID.");
+                MessageBox.Show("Please enter a valid User ID.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            string password = PasswordTextBox.Text;
+            if (password == string.Empty)
+            {
+                MessageBox.Show("Please enter a password.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
 
             using (var DbContext = new AppDbContext())
             {
@@ -62,7 +69,7 @@ namespace POS_System
                             user = new Manager(userRecord.UserID, userRecord.Password, userRecord.Name);
                             break;
                         default:
-                            MessageBox.Show("Invalid user role.");
+                            MessageBox.Show("Error: Invalid user role in Database", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                     }
 
@@ -72,7 +79,7 @@ namespace POS_System
                 }
                 else
                 {
-                    MessageBox.Show("Invalid User ID or password.");
+                    MessageBox.Show("Invalid User ID or password.","Alert", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
             }
         }
@@ -83,21 +90,6 @@ namespace POS_System
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
         {
 
         }

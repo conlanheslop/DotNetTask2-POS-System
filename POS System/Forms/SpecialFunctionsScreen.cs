@@ -26,7 +26,7 @@ namespace POS_System.Forms
 
         private void ButtonViewSalesReport_Click(object sender, EventArgs e)
         {
-            if (LoggedInUser is Manager)
+            if (LoggedInUser is Manager) 
             {
                 var salesReportScreen = new SalesReportScreen(false);
                 salesReportScreen.Show();
