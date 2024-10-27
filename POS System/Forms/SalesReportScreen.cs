@@ -25,7 +25,7 @@ namespace POS_System.Forms
 
             // team leaders do not have access to full sales data, only today data.
 
-            if (isTeamLead)
+            if (isTeamLead )
             {
                 // hide date pickers for team leaders
                 StartDatePicker.Visible = false;
@@ -36,8 +36,7 @@ namespace POS_System.Forms
                 // only load today's sales data.
                 LoadSalesReport(DateTime.Today, DateTime.Today.AddDays(1).AddSeconds(-1));
 
-            }
-            else
+            } else
             {
                 LoadSalesReport(); // load full sales report menu for managers only.
             }
@@ -83,7 +82,7 @@ namespace POS_System.Forms
                 LabelFilterError.Text = "End date must be after start date.";
                 return;
             }
-
+            
             // clear error text
             LabelFilterError.Text = "";
 
