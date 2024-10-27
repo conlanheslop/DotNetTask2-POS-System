@@ -38,6 +38,7 @@ namespace POS_System.Forms
             ButtonCompletePayment = new Button();
             LabelTotal = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
+            ButtonRefund = new Button();
             tableLayoutPanel2 = new TableLayoutPanel();
             tableLayoutPanel3 = new TableLayoutPanel();
             ButtonCashPayment = new Button();
@@ -153,6 +154,7 @@ namespace POS_System.Forms
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.Controls.Add(ButtonCompletePayment, 1, 2);
             tableLayoutPanel1.Controls.Add(ButtonReturn, 1, 1);
+            tableLayoutPanel1.Controls.Add(ButtonRefund, 0, 2);
             tableLayoutPanel1.Dock = DockStyle.Right;
             tableLayoutPanel1.Location = new Point(1193, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -163,13 +165,26 @@ namespace POS_System.Forms
             tableLayoutPanel1.Size = new Size(513, 957);
             tableLayoutPanel1.TabIndex = 9;
             // 
+            // ButtonRefund
+            // 
+            ButtonRefund.AccessibleRole = AccessibleRole.None;
+            ButtonRefund.Anchor = AnchorStyles.None;
+            ButtonRefund.BackColor = Color.LightCoral;
+            ButtonRefund.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonRefund.Location = new Point(13, 832);
+            ButtonRefund.Name = "ButtonRefund";
+            ButtonRefund.Size = new Size(229, 101);
+            ButtonRefund.TabIndex = 9;
+            ButtonRefund.Text = "Refund";
+            ButtonRefund.UseVisualStyleBackColor = false;
+            ButtonRefund.Click += ButtonRefund_Click;
+            // 
             // tableLayoutPanel2
             // 
             tableLayoutPanel2.ColumnCount = 1;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel2.Controls.Add(LabelTotal, 0, 2);
             tableLayoutPanel2.Controls.Add(OrderListView, 0, 0);
-            tableLayoutPanel2.Dock = DockStyle.Left;
             tableLayoutPanel2.Location = new Point(0, 0);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 3;
@@ -190,7 +205,7 @@ namespace POS_System.Forms
             tableLayoutPanel3.Controls.Add(ButtonEftpos, 1, 3);
             tableLayoutPanel3.Controls.Add(TextBoxAmountTendered, 0, 3);
             tableLayoutPanel3.Controls.Add(label1, 0, 2);
-            tableLayoutPanel3.Dock = DockStyle.Fill;
+            tableLayoutPanel3.Dock = DockStyle.Right;
             tableLayoutPanel3.Location = new Point(588, 0);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 5;
@@ -268,5 +283,6 @@ namespace POS_System.Forms
         private TableLayoutPanel tableLayoutPanel1;
         private TableLayoutPanel tableLayoutPanel2;
         private TableLayoutPanel tableLayoutPanel3;
+        private Button ButtonRefund;
     }
 }

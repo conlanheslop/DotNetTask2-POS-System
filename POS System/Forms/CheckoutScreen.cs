@@ -132,8 +132,58 @@ namespace POS_System.Forms
         }
         private void SaveOrder()
         {
+            try
+            {
+                using (var context = new AppDbContext())
+                {
+                    // join the item IDs and seperate them by a comma
+                    string joinedItemIds = string.Join(",", order.GetItems().Select(i => i.ItemID));
 
+                    var completedOrder = new CompletedOrder
+                    {
+                        ItemIDs = joinedItemIds,
+                        TotalPrice = order.GetTotal(),
+                        Date = DateTime.Now
+                    };
+
+                    context.CompletedOrders.Add(completedOrder);
+                    context.SaveChanges();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error saving order to database: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-    
+
+
+        private void ButtonRefund_Click(object sender, EventArgs e)
+        {
+
+            // check if manager is logged in already
+            if (loggedInUser.Role != "Manager")
+            {
+                using (var authorisationScreen = new AuthorisationScreen())
+                {
+                    authorisationScreen.ShowDialog();
+
+                    if (!authorisationScreen.IsAuthorised)
+                    {
+                        MessageBox.Show("Manager login failed. Try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+            }
+
+
+            // if logged in user is already a manager, no need to login again
+            MessageBox.Show("Refund successful. If payment was via card it will be refunded within " +
+                "2 working days. Otherwise you are now authorised to return the cash " +
+                "tendered.", "Refund", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            paymentMade = false;
+            ButtonRefund.Visible = false;
+            order.Clear();
+        }
     }
 }
