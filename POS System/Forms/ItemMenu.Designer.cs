@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            ListViewItem listViewItem1 = new ListViewItem(new string[] { "" }, -1, Color.Empty, SystemColors.ControlLight, null);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ItemMenu));
             LabelName = new Label();
             LabelRole = new Label();
@@ -127,7 +126,6 @@
             // 
             // MenuItemsListView
             // 
-            MenuItemsListView.Items.AddRange(new ListViewItem[] { listViewItem1 });
             MenuItemsListView.Location = new Point(311, 90);
             MenuItemsListView.Name = "MenuItemsListView";
             MenuItemsListView.Size = new Size(555, 445);
@@ -135,6 +133,7 @@
             MenuItemsListView.UseCompatibleStateImageBehavior = false;
             MenuItemsListView.View = View.Tile;
             MenuItemsListView.ItemActivate += MenuItemsListView_ItemActivate;
+            MenuItemsListView.SelectedIndexChanged += MenuItemsListView_SelectedIndexChanged;
             // 
             // ItemMenu
             // 

@@ -20,7 +20,7 @@ namespace POS_System.Forms
 
         public ItemMenu(POSUser user)
         {
-            InitializeComponent(); 
+            InitializeComponent();
             LoggedInUser = user;
 
             LabelName.Text = $"Name: {LoggedInUser.Name}";
@@ -128,6 +128,11 @@ namespace POS_System.Forms
         }
 
         private void ItemMenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MenuItemsListView_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

@@ -45,29 +45,47 @@ namespace POS_System.Forms
         {
             if (decimal.TryParse(TextBoxAmountTendered.Text, out decimal amountTendered))
             {
-                decimal total = order.GetTotal();
-                if (amountTendered >= total)
+
+                if (!paymentMade)
                 {
-                    decimal change = amountTendered - total;
-                    LabelChange.Text = $"Change: {change:C}"; ;
-                    paymentMade = true;
+                    decimal total = order.GetTotal();
+                    if (amountTendered >= total)
+                    {
+                        decimal change = amountTendered - total;
+                        LabelChange.Text = $"Change: {change:C}"; ;
+                        paymentMade = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Not enough cash tendered. Please double check the amount entered.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Not enough cash tendered. Please double check the amount entered.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Invalid amount entered. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
             {
-                MessageBox.Show("Invalid amount entered. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Payment has already been made! Do not double charge the customer", "Alert!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
 
         private void ButtonEftpos_Click(object sender, EventArgs e)
         {
-            //var eftposScreen = new EFTPOSScreen();
-            //eftposScreen.ShowDialog(); 
+
+            if (!paymentMade)
+            {
+                var eftposScreen = new EftposScreen();
+                eftposScreen.ShowDialog();
+                paymentMade = true;
+            }
+            else
+            {
+                MessageBox.Show("Payment has already been made! Do not double charge the customer", "Alert!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
 
@@ -94,15 +112,16 @@ namespace POS_System.Forms
         private void ButtonCompletePayment_Click(object sender, EventArgs e)
         {
 
-            if (paymentMade == true)
+            if (paymentMade)
             {
                 var itemMenu = new ItemMenu(loggedInUser);
                 itemMenu.Show();
                 this.Close();
 
-            } else
+            }
+            else
             {
-                MessageBox.Show("Payment not taken!", "Alert!",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Payment not taken!", "Alert!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
         }
