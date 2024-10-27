@@ -39,6 +39,7 @@
             ButtonCompletePayment = new Button();
             LabelTotal = new Label();
             ButtonCashPayment = new Button();
+            ButtonRefund = new Button();
             SuspendLayout();
             // 
             // OrderListView
@@ -141,11 +142,25 @@
             ButtonCashPayment.UseVisualStyleBackColor = true;
             ButtonCashPayment.Click += ButtonCashPayment_Click;
             // 
+            // ButtonRefund
+            // 
+            ButtonRefund.AccessibleRole = AccessibleRole.None;
+            ButtonRefund.BackColor = Color.LightCoral;
+            ButtonRefund.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonRefund.Location = new Point(579, 131);
+            ButtonRefund.Name = "ButtonRefund";
+            ButtonRefund.Size = new Size(120, 59);
+            ButtonRefund.TabIndex = 9;
+            ButtonRefund.Text = "Refund";
+            ButtonRefund.UseVisualStyleBackColor = false;
+            ButtonRefund.Click += ButtonRefund_Click;
+            // 
             // CheckoutScreen
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(818, 574);
+            Controls.Add(ButtonRefund);
             Controls.Add(ButtonCashPayment);
             Controls.Add(LabelTotal);
             Controls.Add(ButtonCompletePayment);
@@ -174,5 +189,6 @@
         private Button ButtonCompletePayment;
         private Label LabelTotal;
         private Button ButtonCashPayment;
+        private Button ButtonRefund;
     }
 }

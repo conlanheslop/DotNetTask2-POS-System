@@ -8,6 +8,7 @@ namespace POS_System.Classes
     {
         private readonly List<POSItem> items = new List<POSItem>();
 
+
         public void AddItem(POSItem item) => items.Add(item);
 
         public void RemoveItem(POSItem item) => items.Remove(item);
@@ -19,8 +20,7 @@ namespace POS_System.Classes
 
         public void Clear()
         {
-            items.Clear();
-            Console.WriteLine("Order has been cleared.");
+            items.Clear();;
         }
     }
 }
