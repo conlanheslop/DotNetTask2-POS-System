@@ -101,9 +101,18 @@ namespace POS_System.Forms
                 var specialFunctionsScreen = new SpecialFunctionsScreen(LoggedInUser);
                 specialFunctionsScreen.Show();
                 this.Hide();
-            } else
+
+            }
+            else if (LoggedInUser is TeamLead)
+
             {
-                MessageBox.Show("Access Denied. Only managers can view the sales report.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                var specialFunctionsScreen = new SpecialFunctionsScreen(LoggedInUser);
+                specialFunctionsScreen.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Access Denied. Only managers & team leaders can view the sales report.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }

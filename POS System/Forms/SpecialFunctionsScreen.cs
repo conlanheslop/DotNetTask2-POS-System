@@ -28,7 +28,12 @@ namespace POS_System.Forms
         {
             if (LoggedInUser is Manager) 
             {
-                var salesReportScreen = new SalesReportScreen();
+                var salesReportScreen = new SalesReportScreen(false);
+                salesReportScreen.Show();
+            }
+            else if (LoggedInUser is TeamLead)
+            {
+                var salesReportScreen = new SalesReportScreen(true);
                 salesReportScreen.Show();
             }
             else
