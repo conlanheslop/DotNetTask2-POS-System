@@ -8,38 +8,19 @@ namespace POS_System.Classes
     {
         private readonly List<POSItem> items = new List<POSItem>();
 
-        public void AddItem(POSItem Item)
-        {
-            items.Add(Item);
-            Console.WriteLine($"{Item.Name} added to the order.");
-        }
 
-        public void RemoveItem(POSItem Item)
-        {
-            if (items.Contains(Item))
-            {
-                items.Remove(Item);
-                Console.WriteLine($"{Item.Name} removed from the order");
-            }
-        }
+        public void AddItem(POSItem item) => items.Add(item);
 
+        public void RemoveItem(POSItem item) => items.Remove(item);
 
-        public decimal GetTotal()
-        {
-            return items.Sum(item => item.Price);
-        }
+        public decimal GetTotal() => items.Sum(item => item.Price);
 
-
-        public IEnumerable<POSItem> GetItems()
-        {
-            return items;
-        }
+        public IEnumerable<POSItem> GetItems() => items;
 
 
         public void Clear()
         {
-            items.Clear();
-            Console.WriteLine("Order has been cleared.");
+            items.Clear();;
         }
     }
 }
