@@ -51,11 +51,11 @@ It's advised that you use these specifc dependency versions as the latest versio
 ## Important
 Please ensure data.db's "Copy to Output Directory" property is set to "Copy Always"
 
-If you are experiencing database / EF troubles you should delete everything in /Db and 
+If you are experiencing database / EF troubles you should delete everything in the /Db and 
 /Migrations directories and run the following in a CMD / terminal in the project directory.
 
 ```bash
-dotnet ef migrations add InitialUserData
+dotnet ef migrations add InitialData
 dotnet ef database update
 ```
 
