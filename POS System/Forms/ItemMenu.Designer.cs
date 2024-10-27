@@ -34,10 +34,11 @@
             LabelName = new Label();
             LabelRole = new Label();
             LabelDateAndTime = new Label();
-            LabelTotal = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
+            tableLayoutPanel3 = new TableLayoutPanel();
             ButtonCompleteOrder = new Button();
-            ButtonLogout = new Button();
+            LabelTotal = new Label();
+            tableLayoutPanel2 = new TableLayoutPanel();
             OrderListView = new ListView();
             Item = new ColumnHeader();
             Price = new ColumnHeader();
@@ -99,7 +100,24 @@
             // timer1
             // 
             timer1.Enabled = true;
-            timer1.Tick += timer1_Tick;
+            // 
+            // tableLayoutPanel3
+            // 
+            tableLayoutPanel3.ColumnCount = 2;
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 82.71251F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 17.2874889F));
+            tableLayoutPanel3.Controls.Add(ButtonCompleteOrder, 1, 1);
+            tableLayoutPanel3.Controls.Add(LabelTotal, 0, 1);
+            tableLayoutPanel3.Dock = DockStyle.Fill;
+            tableLayoutPanel3.Location = new Point(0, 55);
+            tableLayoutPanel3.Margin = new Padding(2);
+            tableLayoutPanel3.Name = "tableLayoutPanel3";
+            tableLayoutPanel3.RowCount = 2;
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 91.09375F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 8.90625F));
+            tableLayoutPanel3.Size = new Size(1047, 626);
+            tableLayoutPanel3.TabIndex = 17;
+            tableLayoutPanel3.Paint += tableLayoutPanel3_Paint;
             // 
             // ButtonCompleteOrder
             // 
@@ -116,7 +134,7 @@
             ButtonCompleteOrder.UseVisualStyleBackColor = false;
             ButtonCompleteOrder.Click += ButtonCompleteOrder_Click;
             // 
-            // ButtonLogout
+            // LabelTotal
             // 
             ButtonLogout.Anchor = AnchorStyles.Top;
             ButtonLogout.BackColor = Color.Firebrick;
@@ -131,6 +149,9 @@
             ButtonLogout.UseVisualStyleBackColor = false;
             ButtonLogout.Click += LogoutButton_Click;
             // 
+            // tableLayoutPanel2
+            // 
+            // 
             // OrderListView
             // 
             OrderListView.Columns.AddRange(new ColumnHeader[] { Item, Price });
@@ -142,7 +163,6 @@
             OrderListView.TabIndex = 7;
             OrderListView.UseCompatibleStateImageBehavior = false;
             OrderListView.View = View.Details;
-            OrderListView.SelectedIndexChanged += OrderListView_SelectedIndexChanged_1;
             // 
             // Item
             // 
@@ -164,8 +184,21 @@
             MenuItemsListView.TabIndex = 8;
             MenuItemsListView.UseCompatibleStateImageBehavior = false;
             MenuItemsListView.View = View.Tile;
-            MenuItemsListView.ItemActivate += MenuItemsListView_ItemActivate;
-            MenuItemsListView.SelectedIndexChanged += MenuItemsListView_SelectedIndexChanged;
+            MenuItemsListView.Click += MenuItemsListView_ItemActivate;
+            // 
+            // ButtonLogout
+            // 
+            ButtonLogout.Anchor = AnchorStyles.Top;
+            ButtonLogout.BackColor = Color.Firebrick;
+            ButtonLogout.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonLogout.ForeColor = SystemColors.ButtonHighlight;
+            ButtonLogout.Location = new Point(872, 3);
+            ButtonLogout.Name = "ButtonLogout";
+            ButtonLogout.Size = new Size(167, 46);
+            ButtonLogout.TabIndex = 6;
+            ButtonLogout.Text = "Logout";
+            ButtonLogout.UseVisualStyleBackColor = false;
+            ButtonLogout.Click += LogoutButton_Click;
             // 
             // tableLayoutPanel1
             // 
@@ -236,6 +269,28 @@
             tableLayoutPanel3.Size = new Size(1496, 245);
             tableLayoutPanel3.TabIndex = 11;
             // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 4;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 49.7041435F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50.2958565F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 376F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 182F));
+            tableLayoutPanel1.Controls.Add(ButtonSpecialFunctions, 3, 1);
+            tableLayoutPanel1.Controls.Add(ButtonLogout, 3, 0);
+            tableLayoutPanel1.Controls.Add(MenuItemsListView, 2, 0);
+            tableLayoutPanel1.Controls.Add(OrderListView, 0, 0);
+            tableLayoutPanel1.Dock = DockStyle.Top;
+            tableLayoutPanel1.Location = new Point(0, 55);
+            tableLayoutPanel1.Margin = new Padding(2);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 88.434166F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 11.565836F));
+            tableLayoutPanel1.Size = new Size(1047, 562);
+            tableLayoutPanel1.TabIndex = 15;
+            tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
+            // 
             // ItemMenu
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -255,16 +310,16 @@
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel3.PerformLayout();
+
             ResumeLayout(false);
         }
 
         #endregion
-
         private Label LabelName;
         private Label LabelRole;
         private Label LabelDateAndTime;
-        private Label LabelTotal;
         private System.Windows.Forms.Timer timer1;
+        private TableLayoutPanel tableLayoutPanel3;
         private Button ButtonCompleteOrder;
         private Button ButtonLogout;
         private Button ButtonSpecialFunctions;

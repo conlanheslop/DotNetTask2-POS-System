@@ -30,20 +30,18 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginScreen));
-            label2 = new Label();
-            PasswordTextBox = new MaskedTextBox();
-            LoginButton = new Button();
-            label3 = new Label();
-            label4 = new Label();
-            timer1 = new System.Windows.Forms.Timer(components);
+            tableLayoutPanel1 = new TableLayoutPanel();
             label1 = new Label();
+            LoginButton = new Button();
+            label4 = new Label();
+            PasswordTextBox = new MaskedTextBox();
             UsernameTextBox = new TextBox();
             tableLayoutPanel1 = new TableLayoutPanel();
             label5 = new Label();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
-            // label2
+            // tableLayoutPanel1
             // 
             label2.Anchor = AnchorStyles.Bottom;
             label2.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point);
@@ -55,7 +53,7 @@
             label2.Text = "Login";
             label2.Click += label2_Click;
             // 
-            // PasswordTextBox
+            // label1
             // 
             PasswordTextBox.Anchor = AnchorStyles.Top;
             PasswordTextBox.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
@@ -101,7 +99,7 @@
             label4.TabIndex = 6;
             label4.Text = "Password";
             // 
-            // label1
+            // PasswordTextBox
             // 
             label1.Anchor = AnchorStyles.Top;
             label1.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point);
@@ -122,7 +120,7 @@
             UsernameTextBox.Size = new Size(332, 34);
             UsernameTextBox.TabIndex = 1;
             // 
-            // tableLayoutPanel1
+            // label3
             // 
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
@@ -183,13 +181,12 @@
         }
 
         #endregion
-        private Label label2;
-        private MaskedTextBox PasswordTextBox;
-        private Button LoginButton;
-        private Label label3;
-        private Label label4;
-        private System.Windows.Forms.Timer timer1;
+
+        private TableLayoutPanel tableLayoutPanel1;
         private Label label1;
+        private Button LoginButton;
+        private Label label4;
+        private MaskedTextBox PasswordTextBox;
         private TextBox UsernameTextBox;
         private TableLayoutPanel tableLayoutPanel1;
         private Label label5;

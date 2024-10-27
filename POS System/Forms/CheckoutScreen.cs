@@ -20,9 +20,11 @@ namespace POS_System.Forms
         public CheckoutScreen(Order currentOrder, POSUser user)
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
             loggedInUser = user;
             order = currentOrder;
             LoadOrderItems();
+            ButtonRefund.Visible = false;
         }
 
 
@@ -54,6 +56,7 @@ namespace POS_System.Forms
                         decimal change = amountTendered - total;
                         LabelChange.Text = $"Change: {change:C}"; ;
                         paymentMade = true;
+                        ButtonRefund.Visible = true;
                     }
                     else
                     {
@@ -80,6 +83,7 @@ namespace POS_System.Forms
                 var eftposScreen = new EftposScreen();
                 eftposScreen.ShowDialog();
                 paymentMade = true;
+                ButtonRefund.Visible = true;
             }
             else
             {
@@ -187,3 +191,4 @@ namespace POS_System.Forms
         }
     }
 }
+

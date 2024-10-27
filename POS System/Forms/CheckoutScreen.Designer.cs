@@ -257,6 +257,17 @@ namespace POS_System.Forms
             Controls.Add(tableLayoutPanel1);
             Margin = new Padding(4, 5, 4, 5);
             MinimumSize = new Size(1728, 1013);
+            ClientSize = new Size(818, 574);
+            Controls.Add(ButtonRefund);
+            Controls.Add(ButtonCashPayment);
+            Controls.Add(LabelTotal);
+            Controls.Add(ButtonCompletePayment);
+            Controls.Add(ButtonReturn);
+            Controls.Add(ButtonEftpos);
+            Controls.Add(LabelChange);
+            Controls.Add(label1);
+            Controls.Add(TextBoxAmountTendered);
+            Controls.Add(OrderListView);
             Name = "CheckoutScreen";
             Text = "CheckoutScreen";
             tableLayoutPanel1.ResumeLayout(false);
