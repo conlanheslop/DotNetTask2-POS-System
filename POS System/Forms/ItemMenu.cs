@@ -162,5 +162,10 @@ namespace POS_System.Forms
         {
 
         }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
