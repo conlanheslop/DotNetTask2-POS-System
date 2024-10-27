@@ -20,6 +20,7 @@ namespace POS_System.Forms
         public CheckoutScreen(Order currentOrder, POSUser user)
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterParent;
             loggedInUser = user;
             order = currentOrder;
             LoadOrderItems();
@@ -43,10 +44,10 @@ namespace POS_System.Forms
 
         private void ButtonCashPayment_Click(object sender, EventArgs e)
         {
-            if (decimal.TryParse(TextBoxAmountTendered.Text, out decimal amountTendered))
+            if (!paymentMade)
             {
 
-                if (!paymentMade)
+                if (decimal.TryParse(TextBoxAmountTendered.Text, out decimal amountTendered))
                 {
                     decimal total = order.GetTotal();
                     if (amountTendered >= total)

@@ -21,6 +21,7 @@ namespace POS_System.Forms
         public ItemMenu(POSUser user)
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
             LoggedInUser = user;
 
             LabelName.Text = $"Name: {LoggedInUser.Name}";

@@ -15,6 +15,7 @@ namespace POS_System.Forms
         public EftposScreen()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterParent;
             StartPaymentSimulation();
         }
 
@@ -33,10 +34,15 @@ namespace POS_System.Forms
                     timer1.Stop();
                     System.Threading.Thread.Sleep(1000); // theatre
                     MessageBox.Show("Payment Approved!", "EFTPOS System", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close(); 
+                    this.Close();
                 }
             };
             timer1.Start();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

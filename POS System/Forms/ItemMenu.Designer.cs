@@ -83,6 +83,11 @@
             LabelTotal.TabIndex = 3;
             LabelTotal.Text = "Total";
             // 
+            // timer1
+            // 
+            timer1.Enabled = true;
+            timer1.Tick += timer1_Tick;
+            // 
             // ButtonCompleteOrder
             // 
             ButtonCompleteOrder.Location = new Point(901, 520);

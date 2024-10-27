@@ -11,6 +11,7 @@ namespace POS_System
         public LoginScreen()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -35,7 +36,7 @@ namespace POS_System
 
             if (!isNum)
             {
-                MessageBox.Show("Please enter a valid User ID.");
+                MessageBox.Show("Please enter a valid User ID.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -62,7 +63,7 @@ namespace POS_System
                             user = new Manager(userRecord.UserID, userRecord.Password, userRecord.Name);
                             break;
                         default:
-                            MessageBox.Show("Invalid user role.");
+                            MessageBox.Show("Error: Invalid user role in Database", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                     }
 
@@ -72,7 +73,7 @@ namespace POS_System
                 }
                 else
                 {
-                    MessageBox.Show("Invalid User ID or password.");
+                    MessageBox.Show("Invalid User ID or password.","Alert", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
             }
         }
