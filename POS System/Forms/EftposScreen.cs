@@ -15,7 +15,6 @@ namespace POS_System.Forms
         public EftposScreen()
         {
             InitializeComponent();
-            StartPosition = FormStartPosition.CenterParent;
             StartPaymentSimulation();
         }
 
