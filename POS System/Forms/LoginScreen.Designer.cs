@@ -30,27 +30,15 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginScreen));
-            label1 = new Label();
             label2 = new Label();
             PasswordTextBox = new MaskedTextBox();
-            UsernameTextBox = new TextBox();
             LoginButton = new Button();
             label3 = new Label();
             label4 = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
+            label1 = new Label();
+            UsernameTextBox = new TextBox();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(247, 9);
-            label1.Margin = new Padding(2, 0, 2, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(209, 30);
-            label1.TabIndex = 0;
-            label1.Text = "DotNET POS System";
-            label1.Click += label1_Click;
             // 
             // label2
             // 
@@ -66,6 +54,7 @@
             // 
             // PasswordTextBox
             // 
+            PasswordTextBox.Anchor = AnchorStyles.None;
             PasswordTextBox.Location = new Point(252, 259);
             PasswordTextBox.Margin = new Padding(2);
             PasswordTextBox.Name = "PasswordTextBox";
@@ -73,17 +62,9 @@
             PasswordTextBox.Size = new Size(176, 23);
             PasswordTextBox.TabIndex = 2;
             // 
-            // UsernameTextBox
-            // 
-            UsernameTextBox.Cursor = Cursors.IBeam;
-            UsernameTextBox.Location = new Point(252, 156);
-            UsernameTextBox.Margin = new Padding(2);
-            UsernameTextBox.Name = "UsernameTextBox";
-            UsernameTextBox.Size = new Size(176, 23);
-            UsernameTextBox.TabIndex = 3;
-            // 
             // LoginButton
             // 
+            LoginButton.Anchor = AnchorStyles.None;
             LoginButton.Location = new Point(252, 331);
             LoginButton.Margin = new Padding(2);
             LoginButton.Name = "LoginButton";
@@ -95,6 +76,7 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label3.Location = new Point(247, 120);
@@ -107,6 +89,7 @@
             // 
             // label4
             // 
+            label4.Anchor = AnchorStyles.None;
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label4.Location = new Point(252, 226);
@@ -115,6 +98,28 @@
             label4.Size = new Size(82, 21);
             label4.TabIndex = 6;
             label4.Text = "Password";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(247, 9);
+            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(209, 30);
+            label1.TabIndex = 0;
+            label1.Text = "DotNET POS System";
+            label1.Click += label1_Click;
+            // 
+            // UsernameTextBox
+            // 
+            UsernameTextBox.Anchor = AnchorStyles.None;
+            UsernameTextBox.Cursor = Cursors.IBeam;
+            UsernameTextBox.Location = new Point(252, 156);
+            UsernameTextBox.Margin = new Padding(2);
+            UsernameTextBox.Name = "UsernameTextBox";
+            UsernameTextBox.Size = new Size(176, 23);
+            UsernameTextBox.TabIndex = 1;
             // 
             // LoginScreen
             // 
@@ -129,7 +134,6 @@
             Controls.Add(PasswordTextBox);
             Controls.Add(label2);
             Controls.Add(label1);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(2);
             MaximizeBox = false;
@@ -141,14 +145,13 @@
         }
 
         #endregion
-
-        private Label label1;
         private Label label2;
         private MaskedTextBox PasswordTextBox;
-        private TextBox UsernameTextBox;
         private Button LoginButton;
         private Label label3;
         private Label label4;
         private System.Windows.Forms.Timer timer1;
+        private Label label1;
+        private TextBox UsernameTextBox;
     }
 }

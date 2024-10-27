@@ -20,14 +20,18 @@ namespace POS_System.Forms
 
         public ItemMenu(POSUser user)
         {
-            InitializeComponent();
+            InitializeComponent(); 
             LoggedInUser = user;
 
             LabelName.Text = $"Name: {LoggedInUser.Name}";
             LabelRole.Text = $"Role: {LoggedInUser.Role}";
 
             timer1.Start();
+
+            LoadMenuItems();
+
         }
+
 
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -35,11 +39,42 @@ namespace POS_System.Forms
             LabelDateAndTime.Text = $"Date and Time: {DateTime.Now:f}";
         }
 
-        private void BigMacButton_Click(object sender, EventArgs e)
+
+        private void LoadMenuItems()
         {
-            var bigMac = new POSItem("Big Mac", 5.99m);
-            order.AddItem(bigMac);
-            RefreshOrderList();
+            using (var context = new AppDbContext())
+
+            {
+                var items = context.POSItems.ToList();
+
+                foreach (var item in items)
+                {
+                    var listViewItem = new ListViewItem(item.Name);
+                    listViewItem.SubItems.Add(item.Price.ToString("C"));
+
+                    MenuItemsListView.Items.Add(listViewItem);
+                }
+            }
+        }
+
+
+        private void MenuItemsListView_ItemActivate(object sender, EventArgs e)
+        {
+            if (MenuItemsListView.SelectedItems.Count > 0)
+            {
+                var selectedItem = MenuItemsListView.SelectedItems[0];
+                var itemName = selectedItem.Text;
+
+                using (var context = new AppDbContext())
+                {
+                    var item = context.POSItems.FirstOrDefault(i => i.Name == itemName);
+                    if (item != null)
+                    {
+                        order.AddItem(item);
+                        RefreshOrderList();
+                    }
+                }
+            }
         }
 
 
@@ -47,15 +82,13 @@ namespace POS_System.Forms
         {
             if (!order.GetItems().Any())
             {
-                MessageBox.Show("No items in the order.");
+                MessageBox.Show("No items in the order.", "Warning.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            decimal total = order.GetTotal();
-            MessageBox.Show($"Order completed!\nTotal: {total:C}");
-
-            order.Clear();  
-            RefreshOrderList(); 
+            var checkoutScreen = new CheckoutScreen(order, LoggedInUser);
+            checkoutScreen.Show();
+            this.Hide();
         }
 
 
@@ -72,7 +105,7 @@ namespace POS_System.Forms
                 OrderListView.Items.Add(listViewItem);
             }
 
-            LabelTotal.Text = $"Total: {order.GetTotal():C}"; 
+            LabelTotal.Text = $"Total: {order.GetTotal():C}";
         }
 
 
@@ -90,6 +123,11 @@ namespace POS_System.Forms
         }
 
         private void OrderListView_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ItemMenu_Load(object sender, EventArgs e)
         {
 
         }

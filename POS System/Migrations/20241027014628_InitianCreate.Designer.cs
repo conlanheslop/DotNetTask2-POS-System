@@ -10,13 +10,69 @@ using POS_System;
 namespace POS_System.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241026104510_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20241027014628_InitianCreate")]
+    partial class InitianCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.0");
+
+            modelBuilder.Entity("POS_System.Classes.POSItem", b =>
+                {
+                    b.Property<int>("ItemID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("ItemID");
+
+                    b.ToTable("POSItems");
+
+                    b.HasData(
+                        new
+                        {
+                            ItemID = 1,
+                            Name = "Big Mac",
+                            Price = 6.50m
+                        },
+                        new
+                        {
+                            ItemID = 2,
+                            Name = "Medium Fries",
+                            Price = 3.20m
+                        },
+                        new
+                        {
+                            ItemID = 3,
+                            Name = "Coke",
+                            Price = 4.50m
+                        },
+                        new
+                        {
+                            ItemID = 4,
+                            Name = "Coke No Sugar",
+                            Price = 4.50m
+                        },
+                        new
+                        {
+                            ItemID = 5,
+                            Name = "Oreo McFlurry",
+                            Price = 4.75m
+                        },
+                        new
+                        {
+                            ItemID = 6,
+                            Name = "M&M McFlurry",
+                            Price = 4.75m
+                        });
+                });
 
             modelBuilder.Entity("POS_System.Classes.POSUser", b =>
                 {
