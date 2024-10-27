@@ -29,17 +29,18 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ItemMenu));
             LabelName = new Label();
             LabelRole = new Label();
             LabelDateAndTime = new Label();
             LabelTotal = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
-            BigMacButton = new Button();
             ButtonCompleteOrder = new Button();
             ButtonLogout = new Button();
             OrderListView = new ListView();
             Item = new ColumnHeader();
             Price = new ColumnHeader();
+            MenuItemsListView = new ListView();
             SuspendLayout();
             // 
             // LabelName
@@ -76,25 +77,15 @@
             // 
             LabelTotal.AutoSize = true;
             LabelTotal.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelTotal.Location = new Point(805, 465);
+            LabelTotal.Location = new Point(872, 485);
             LabelTotal.Name = "LabelTotal";
             LabelTotal.Size = new Size(67, 32);
             LabelTotal.TabIndex = 3;
             LabelTotal.Text = "Total";
             // 
-            // BigMacButton
-            // 
-            BigMacButton.Location = new Point(327, 135);
-            BigMacButton.Name = "BigMacButton";
-            BigMacButton.Size = new Size(95, 52);
-            BigMacButton.TabIndex = 4;
-            BigMacButton.Text = "Big Mac";
-            BigMacButton.UseVisualStyleBackColor = true;
-            BigMacButton.Click += BigMacButton_Click;
-            // 
             // ButtonCompleteOrder
             // 
-            ButtonCompleteOrder.Location = new Point(875, 523);
+            ButtonCompleteOrder.Location = new Point(901, 520);
             ButtonCompleteOrder.Name = "ButtonCompleteOrder";
             ButtonCompleteOrder.Size = new Size(134, 71);
             ButtonCompleteOrder.TabIndex = 5;
@@ -133,21 +124,34 @@
             Price.Text = "Price";
             Price.Width = 80;
             // 
+            // MenuItemsListView
+            // 
+            MenuItemsListView.Location = new Point(311, 90);
+            MenuItemsListView.Name = "MenuItemsListView";
+            MenuItemsListView.Size = new Size(555, 445);
+            MenuItemsListView.TabIndex = 8;
+            MenuItemsListView.UseCompatibleStateImageBehavior = false;
+            MenuItemsListView.View = View.Tile;
+            MenuItemsListView.ItemActivate += MenuItemsListView_ItemActivate;
+            MenuItemsListView.SelectedIndexChanged += MenuItemsListView_SelectedIndexChanged;
+            // 
             // ItemMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1047, 681);
+            Controls.Add(MenuItemsListView);
             Controls.Add(OrderListView);
             Controls.Add(ButtonLogout);
             Controls.Add(ButtonCompleteOrder);
-            Controls.Add(BigMacButton);
             Controls.Add(LabelTotal);
             Controls.Add(LabelDateAndTime);
             Controls.Add(LabelRole);
             Controls.Add(LabelName);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ItemMenu";
             Text = "ItemMenu";
+            Load += ItemMenu_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -159,11 +163,11 @@
         private Label LabelDateAndTime;
         private Label LabelTotal;
         private System.Windows.Forms.Timer timer1;
-        private Button BigMacButton;
         private Button ButtonCompleteOrder;
         private Button ButtonLogout;
         private ListView OrderListView;
         private ColumnHeader Item;
         private ColumnHeader Price;
+        private ListView MenuItemsListView;
     }
 }
